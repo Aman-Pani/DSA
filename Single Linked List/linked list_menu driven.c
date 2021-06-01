@@ -24,7 +24,7 @@ void merge(nd*, nd*);
 
 int main()
 {
-    nd *start=NULL,*temp,*start1=NULL,*start2=NULL;
+    nd *start=NULL,*temp,*start2=NULL;
     int ch,i,val,ele;
     while(1)
     {
