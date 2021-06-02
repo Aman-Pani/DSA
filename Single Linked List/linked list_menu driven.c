@@ -86,6 +86,7 @@ int main()
             start=reverse(start);
             printf("\nAfter reversing");
             display(start);
+            break;    
         case 13:
             //start1=creat(start1);
             start2=creat(start2);
