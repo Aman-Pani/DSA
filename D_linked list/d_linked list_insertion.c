@@ -13,6 +13,7 @@ nd* binsert(nd*);
 void einsert(nd*);
 void insert(nd*,int);
 int count=0;
+
 int main()
 {
     nd *start=NULL;
