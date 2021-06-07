@@ -12,21 +12,20 @@ void display(nd*);
 nd* binsert(nd*);
 void einsert(nd*);
 void insert(nd*,int);
-
+int count=0;
 int main()
 {
     nd *start=NULL;
     int i;
     start=creat(start);
     display(start);
+
     start=binsert(start);
     display(start);
 
     einsert(start);
     display(start);
 
-    printf("\nInput i:: ");
-    scanf("%d",&i);
     insert(start,i);
     display(start);
     return 0;
@@ -38,6 +37,7 @@ nd* creat(nd *start)
     if(start==NULL)
     {
         start=(nd*)malloc(sizeof(nd));
+        count++;
         printf("Input data to 1st node:: ");
         scanf("%d",&(start->info));
         start->prev=NULL;
@@ -48,6 +48,7 @@ nd* creat(nd *start)
     while(ch=='y')
     {
         temp->next=(nd*)malloc(sizeof(nd));
+        count++;
         pre=temp;
         temp=temp->next;
         printf("Input new node:: ");
@@ -64,7 +65,7 @@ void display(nd *s)
 {
     nd *ptr,*p1;
     ptr=s;
-    printf("Forward traverse ::\n ");
+    printf("\nTraverse ::\n ");
     while(ptr!=NULL)
     {
         p1=ptr;
@@ -82,6 +83,7 @@ nd* binsert(nd *s)
     new->next=s;
     s->prev=new;
     s=new;
+    count++;
     return s;
 }
 
@@ -99,12 +101,16 @@ void einsert(nd *s)
     new->next=NULL;
     new->prev=temp;
     temp->next=new;
+    count++;
 }
 
 void insert(nd *s,int i)
 {
     nd *temp,*new,*t1;
     int k;
+    printf("\nCount= %d",count);
+    printf("\nInput i(i < count):: ");
+    scanf("%d",&i);
     new=(nd*)malloc(sizeof(nd));
     printf("\nEnter new node:: ");
     scanf("%d",&(new->info));
@@ -120,4 +126,5 @@ void insert(nd *s,int i)
     new->prev=temp;
     new->next=t1;
     t1->prev=new;
+    count++;
 }
