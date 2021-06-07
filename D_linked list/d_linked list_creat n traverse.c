@@ -1,3 +1,4 @@
+//double LL creat and forward/backward traverse
 #include<stdio.h>
 #include<stdlib.h>
 #include<malloc.h>
@@ -9,14 +10,14 @@ struct node
 typedef struct node nd;
 nd* creat(nd*);
 void display_f(nd*);
-//void display_b(nd*);
+void display_b(nd*);
 
 int main()
 {
     nd *start=NULL;
     start=creat(start);
     display_f(start);
-    //display_b(start);
+    display_b(start);
     return 0;
 }
 
@@ -59,7 +60,20 @@ void display_f(nd *s)
         printf("%d\t",ptr->info);
         ptr=ptr->next;
     }
+}
 
+void display_b(nd *s)
+{
+    nd *ptr,*p1;
+    ptr=s;
+    //printf("\nForward traverse ::\n ");
+    while(ptr!=NULL)
+    {
+        p1=ptr;
+        //printf("%d\t",ptr->info);
+        ptr=ptr->next;
+    }
+//Backward traverse
     printf("\nBackward traverse ::\n ");
     while(p1!=NULL)
     {
@@ -67,16 +81,3 @@ void display_f(nd *s)
         p1=p1->prev;
     }
 }
-
-/*void display_b(nd *s)
-{
-    nd *ptr,*p1;
-    ptr=s;
-    printf("\nBackward traverse ::\n ");
-    while(p1!=NULL)
-    {
-        p1=ptr;
-        printf("%d\t",p1->info);
-        p1=p1->prev;
-    }
-}*/
