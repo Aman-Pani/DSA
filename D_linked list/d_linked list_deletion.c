@@ -12,6 +12,7 @@ void display_f(nd*);
 nd* bdelete(nd*);
 void edelete(nd*);
 void idelete(nd*,int);
+void ndelete(nd*);
 int count=0;
 
 int main()
@@ -28,6 +29,9 @@ int main()
     display_f(start);
 
     idelete(start,i);
+    display_f(start);
+
+    ndelete(start);
     display_f(start);
     return 0;
 }
@@ -122,4 +126,23 @@ void idelete(nd *s,int i)
    printf("\nDeleted node is %d\n",dele->info);
    count--;
    free(dele);
+}
+
+void ndelete(nd *s)
+{
+    nd *dele,*temp;
+    int ele;
+    printf("\nEnter the value to delete(except 1st node): ");
+    scanf("%d",&ele);
+    dele=s;
+    while(dele->info!=ele)
+    {
+        temp=dele;
+        dele=dele->next;
+    }
+    temp=dele->prev;
+    temp->next=dele->next;
+    temp=dele->next;
+    temp->prev=dele->prev;
+    free(dele);
 }
