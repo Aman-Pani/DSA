@@ -48,15 +48,16 @@ void idelete(nd *s,int i)
 {
     nd *ptr,*dele;
     int k=1;
-    printf("\nValue of i:: ");
+    dele=s;
+    printf("\nValue of i(i > 1):: ");
     scanf("%d",&i);
-    ptr=s;
-    while(k<i-1)
+    while(k<i)
     {
-        ptr=ptr->next;
+        ptr=dele;
+        dele=dele->next;
         k++;
     }
-    dele=ptr->next;
     ptr->next=dele->next;
+    printf("Deleted node is %d .",dele->info);
     free(dele);
 }
