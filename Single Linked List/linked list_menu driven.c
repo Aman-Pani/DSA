@@ -55,22 +55,23 @@ int main()
             einsert(start);
             break;
         case 5:
-            printf("\nInput i :: ");
+            printf("Input i :: ");
             scanf("%d",&i);
             insert(start,i);
             break;
         case 6:
-            printf("\nInput value :: ");
+            printf("Input value :: ");
             scanf("%d",&val);
             vinsert(start,val);
             break;
         case 7:
-            printf("\nInput element :: ");
+            printf("Input element :: ");
             scanf("%d",&ele);
             search(start,ele);
             break;
         case 8:
             ssort(start);
+            printf("After sorting ::\n");
             display(start);
             break;
         case 9:
@@ -84,18 +85,18 @@ int main()
             break;
         case 12:
             start=reverse(start);
-            printf("\nAfter reversing");
+            printf("After reversing:: ");
             display(start);
-            break;    
+            break;
         case 13:
             //start1=creat(start1);
             start2=creat(start2);
-            printf("\nElements of 1st list::\n");
+            printf("\nElements of 1st list ::\n");
             display(start);
-            printf("\nElements of 2nd list ::\n");
+            printf("Elements of 2nd list ::\n");
             display(start2);
             merge(start,start2);
-            printf("\nList after merging ::\n");
+            printf("List after merging ::\n");
             display(start);
             break;
         case 14:
@@ -149,7 +150,7 @@ nd* binsert(nd *s)
 {
     nd *new;
     new=(nd*)malloc(sizeof(nd));
-    printf("\nNew 1st node:: ");
+    printf("New 1st node:: ");
     scanf("%d",&(new->info));
     new->next=s;
     s=new;
@@ -166,7 +167,7 @@ void einsert(nd *s)
     }
     new=(nd*)malloc(sizeof(nd));
     new->next=NULL;
-    printf("\nInput last node:: ");
+    printf("Input last node:: ");
     scanf("%d",&(new->info));
     temp->next=new;
 }
@@ -183,7 +184,7 @@ void insert(nd *s, int i)
         k++;
     }
     new=(nd*)malloc(sizeof(nd));
-    printf("\nNew node:: ");
+    printf("New node:: ");
     scanf("%d",&(new->info));
     new->next=ptr->next;
     ptr->next=new;
@@ -278,7 +279,7 @@ nd* deletefn(nd *start)
     nd *dele;
     dele=start;
     start=start->next;
-    printf("\nDeleted node is %d\n",dele->info);
+    printf("Deleted node is %d\n",dele->info);
     free(dele);
     return start;
 }
@@ -292,7 +293,7 @@ void deleteln(nd *start)
         temp=dele;
         dele=dele->next;
     }
-    printf("\nDeleted node is %d\n",dele->info);
+    printf("Deleted node is %d\n",dele->info);
     temp->next=NULL;
     free(dele);
 }
@@ -302,7 +303,7 @@ void idelete(nd *s,int i)
     nd *ptr,*dele;
     int k=1;
     dele=s;
-    printf("\nValue of i(i > 1):: ");
+    printf("Value of i(i > 1):: ");
     scanf("%d",&i);
     while(k<i)
     {
@@ -311,7 +312,7 @@ void idelete(nd *s,int i)
         k++;
     }
     ptr->next=dele->next;
-    printf("Deleted node is %d .",dele->info);
+    printf("Deleted node is %d \n",dele->info);
     free(dele);
 }
 
